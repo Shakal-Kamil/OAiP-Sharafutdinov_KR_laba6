@@ -1,0 +1,1 @@
+# OAiP-Sharafutdinov_KR_laba6
