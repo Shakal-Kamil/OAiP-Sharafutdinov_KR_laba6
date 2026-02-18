@@ -1,0 +1,63 @@
+﻿<Window x:Class="SharafutdinovKR_laba6.Task6"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SharafutdinovKR_laba6"
+        mc:Ignorable="d"
+        Title="Task6" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" 
+               Content="Номинал купюры (first):" 
+               Margin="5" 
+               VerticalAlignment="Center"/>
+        <TextBox x:Name="FirstTextBox" 
+                 Grid.Row="0" Grid.Column="1" 
+                 Margin="5" 
+                 Padding="5"
+                 VerticalAlignment="Center"/>
+
+        <Label Grid.Row="1" Grid.Column="0" 
+               Content="Количество купюр (second):" 
+               Margin="5" 
+               VerticalAlignment="Center"/>
+        <TextBox x:Name="SecondTextBox" 
+                 Grid.Row="1" Grid.Column="1" 
+                 Margin="5" 
+                 Padding="5"
+                 VerticalAlignment="Center"/>
+
+        <Button x:Name="CalculateButton" 
+                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                Content="Вычислить сумму" 
+                Margin="5" 
+                Padding="10,5"
+                Click="CalculateButton_Click"/>
+
+        <TextBlock x:Name="ResultTextBlock" 
+                   Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                   Margin="5" 
+                   Padding="10"
+                   Background="#F0F0F0"
+                   TextWrapping="Wrap"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                   Margin="5"
+                   Foreground="Gray"
+                   FontSize="11"
+                   Text="Допустимые номиналы: 1, 2, 5, 10, 50, 100, 500, 1000, 5000"/>
+    </Grid>
+</Window>

@@ -1,0 +1,137 @@
+﻿<Window x:Class="SharafutdinovKR_laba6.Task3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SharafutdinovKR_laba6"
+        mc:Ignorable="d"
+        Title="Task3" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" 
+                   Text="Заменить чётные индексы на квадраты, нечётные на кубы"
+                   FontSize="14" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,10"
+                   TextWrapping="Wrap"/>
+
+        <Border Grid.Row="1" 
+                BorderBrush="Gray" 
+                BorderThickness="1" 
+                Padding="10" 
+                Margin="0,0,0,10"
+                Background="#F0F0F0">
+            <StackPanel>
+                <TextBlock Text="Введите элементы массива через пробел или запятую:" 
+                           Margin="0,0,0,5"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="InputTextBox" 
+                             Width="300" 
+                             Height="25" 
+                             Text="1 2 3 4 5" 
+                             VerticalAlignment="Center"/>
+                    <Button x:Name="CreateArrayButton" 
+                            Content="Создать" 
+                            Width="70" 
+                            Margin="5,0,0,0"
+                            Click="CreateArrayButton_Click"/>
+                    <Button x:Name="ClearButton" 
+                            Content="Очистить" 
+                            Width="70" 
+                            Margin="5,0,0,0"
+                            Click="ClearButton_Click"/>
+                </StackPanel>
+                <TextBlock Text="Пример: 5 8 3 12 7  или  5,8,3,12,7" 
+                           FontSize="11" 
+                           Foreground="Gray" 
+                           Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <GroupBox Grid.Row="2" 
+                  Header="Исходный массив" 
+                  Margin="0,0,0,10">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                          HorizontalScrollBarVisibility="Auto"
+                          BorderBrush="LightGray"
+                          BorderThickness="1">
+                <ItemsControl x:Name="OriginalArrayItems" Margin="5">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Blue" 
+                                    BorderThickness="1" 
+                                    CornerRadius="3"
+                                    Margin="3" 
+                                    Padding="8,3">
+                                <TextBlock Text="{Binding}" 
+                                           FontWeight="Bold"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>
+
+        <Button Grid.Row="3" 
+                x:Name="ProcessButton" 
+                Content="Преобразовать (чётные→квадрат, нечётные→куб)" 
+                Height="30" 
+                Margin="0,0,0,10"
+                HorizontalAlignment="Center"
+                Click="ProcessButton_Click"
+                IsEnabled="False"/>
+
+        <GroupBox Grid.Row="4" 
+                  Header="Обработанный массив" 
+                  Margin="0,0,0,10">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                          HorizontalScrollBarVisibility="Auto"
+                          BorderBrush="LightGray"
+                          BorderThickness="1">
+                <ItemsControl x:Name="ProcessedArrayItems" Margin="5">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Green" 
+                                    BorderThickness="1" 
+                                    CornerRadius="3"
+                                    Margin="3" 
+                                    Padding="8,3"
+                                    Background="#E6F7E6">
+                                <TextBlock Text="{Binding}" 
+                                           FontWeight="Bold"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>
+
+        <Border Grid.Row="5" 
+                BorderBrush="Orange" 
+                BorderThickness="1" 
+                Padding="5"
+                Background="LightYellow">
+            <TextBlock x:Name="InfoTextBlock" 
+                       Text="Введите элементы массива и нажмите 'Создать'"
+                       TextWrapping="Wrap"/>
+        </Border>
+    </Grid>
+</Window>
